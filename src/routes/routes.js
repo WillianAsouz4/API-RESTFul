@@ -1,12 +1,18 @@
-const router = require('express').Router();
+// Verbos HTTP (4 Tipos)
+// GET - Buscar de dados
+// POST - Enviar dados / Receber dados 
+//PUT - Atualizar dados
+// DELETE - Deletar dados
 
-router.get('/clientes', (req, res) => {
+const router = require('express').Router()
 
-    res.send(
-        `<h1>Rota de Clientes</h1>
-        <p>Esta é a rota de clientes. Aqui você pode gerenciar os clientes do sistema.</p>`
-    )
+const ProductsController = require('../controllers/products')
 
-})
+router.get('/products', ProductsController.get)
+//router.post('/products', ProductsController.post)
+//router.put('/products/:id', ProductsController.put)
+//router.delete('/products/:id', ProductsController.delete)
+
+
 
 module.exports = router;
