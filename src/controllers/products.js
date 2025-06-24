@@ -1,3 +1,4 @@
+const Product = require('../models/products')
 const ProductsModel = require('../models/products')
 
 async function get(req, res) {
@@ -53,8 +54,22 @@ async function put(req, res) {
 */
 }
 
+async function remove(req, res) {
+    const { id } = req.params
+
+    const remove = await ProductsModel.deleteOne({ _id: id })
+
+   const message = removo.ok ? 'sucesso' : 'erro'
+
+   res.send({
+        message,
+    })
+    
+}
+
 module.exports = {
     get,
     post,
     put,
+    remove,
 }
