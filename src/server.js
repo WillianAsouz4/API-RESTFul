@@ -10,7 +10,7 @@ const app = express();
 db.connect()
 
 // habilitando o server para receber dados do formulario
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json())
 
 // definindo as rotas
 app.use('/api', routes);
